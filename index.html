@@ -91,6 +91,42 @@ display: flex;
       width:auto!important;
   }
 }
+             
+/* CSS */
+.button-74 {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-74:hover {
+  background-color: #fff;
+}
+
+.button-74:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
     </style>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/gracehuynhh/doodlejump/w3navigation.css" />
 
@@ -149,6 +185,9 @@ display: flex;
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 <a href="#" id="hide-ads">Hide ads</a> | <a href="https://retrobowl.me/">Latest Retro Bowl</a>
+     <!-- HTML !-->
+<a id="fullscreen-btn" class="button-74" role="button">Fullscreen</a>
+
 </div>
 </div>
 <script type="43f92c5823e95dd824ade679-text/javascript">
@@ -160,6 +199,25 @@ display: flex;
       document.getElementById("hide-ads").addEventListener("click", function(){
           document.getElementById("ads").style.display = "none";
       })
+     const fullscreenBtn = document.getElementById('fullscreen-btn');
+const frame = document.getElementById('frame');
+
+fullscreenBtn.addEventListener('click', () => {
+
+  if (frame.requestFullscreen) {
+    frame.requestFullscreen();
+  } else if (frame.mozRequestFullScreen) { 
+    frame.mozRequestFullScreen(); // Firefox
+  } else if (frame.webkitRequestFullscreen) { 
+    frame.webkitRequestFullscreen(); // Chrome and Safari
+  } else if (frame.msRequestFullscreen) {
+    frame.msRequestFullscreen(); // IE/Edge
+  }
+
+  frame.style.width = '100%';
+  frame.style.height = '100%';
+
+});
     </script>
 <script async defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.1/dist/lazyload.min.js" type="43f92c5823e95dd824ade679-text/javascript"></script>
 <script type="43f92c5823e95dd824ade679-text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6271f5abca80cec0"></script>
