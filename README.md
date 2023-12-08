@@ -1,7 +1,7 @@
 # retrobowl-unblocked.github.io
 
 
-[Retro Bowl](https://retrobowl.me/)
+Official Link: [Retro Bowl](https://retrobowl.me/)
 ![retro bowl unblocked](https://retrobowl.me/wp-content/uploads/2023/08/feature-image-1-300x169.png.webp?raw=true "Retro Bowl Unblocked")
 
 
