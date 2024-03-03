@@ -892,72 +892,137 @@
     };
 </script>
 <style>
-  #retro-bowl-msg {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      background-color: red; /* Red background */
-      color: white;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-      display: none; /* Initially hidden */
-  }
+    #retro-bowl-msg {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        background-color: red; /* Red background */
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        display: none; /* Initially hidden */
+    }
 
-  #retro-bowl-msg a {
-      color: white; /* White link color */
-      text-decoration: none;
-  }
+    #retro-bowl-msg a {
+        color: white; /* White link color */
+        text-decoration: none;
+    }
 
-  #retro-bowl-msg a:hover {
-      text-decoration: underline;
-  }
+    #retro-bowl-msg a:hover {
+        text-decoration: underline;
+    }
 
-  #retro-bowl-msg button {
-      background-color: transparent;
-      border: none;
-      position: absolute;
-      top: 0;
-      right: 0;
-      cursor: pointer;
-  }
+    #retro-bowl-msg button {
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+    }
 
-  .close-icon {
-      fill: white; /* White close icon */
-      width: 20px;
-      height: 20px;
-  }
+    .close-icon {
+        fill: white; /* White close icon */
+        width: 20px;
+        height: 20px;
+    }
 </style>
 </head>
 <body>
 
 <div id="retro-bowl-msg">
-  <button onclick="document.getElementById('retro-bowl-msg').style.display='none'">
-      <svg class="close-icon" viewBox="0 0 24 24">
-          <path d="M0 0h24v24H0V0z" fill="none"/>
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/>
-      </svg>
+    <button onclick="document.getElementById('retro-bowl-msg').style.display='none'">
+        <svg class="close-icon" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0V0z" fill="none"/>
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/>
+        </svg>
+    </button>
+    <p>Play the latest Unblocked version here: <a href="https://retrobowl.me" target="_blank">Retro Bowl</a></p>
+</div>
+
+<script>
+    function showMessage() {
+        var msgDiv = document.getElementById('retro-bowl-msg');
+        msgDiv.style.display = 'block';
+        setTimeout(function() {
+            msgDiv.style.display = 'none';
+        }, 5000);
+    }
+
+    window.onload = function() {
+        showMessage(); // Show immediately on load
+
+        setTimeout(function() {
+            showMessage(); // Show again after 2 minutes
+        }, 120000); // 2 minutes
+    };
+</script>
+<style>
+  #retro-bowl-msg {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: none;
+    cursor: pointer;
+  }
+
+  #retro-bowl-msg a {
+    color: white;
+    text-decoration: none;
+    display: block;
+  }
+
+  #retro-bowl-msg a:hover {
+    text-decoration: underline;
+  }
+
+  #close-btn {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+  }
+
+  .close-icon {
+    fill: white;
+    width: 20px;
+    height: 20px;
+  }
+</style>
+
+<div id="retro-bowl-msg" onclick="window.open('https://retrobowl.me', '_blank')">
+  <button id="close-btn" onclick="event.stopPropagation(); document.getElementById('retro-bowl-msg').style.display='none'">
+    <svg class="close-icon" viewBox="0 0 24 24">
+      <path d="M0 0h24v24H0V0z" fill="none"/>
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/>
+    </svg>
   </button>
-  <p>Play the latest Unblocked version here: <a href="https://retrobowl.me" target="_blank">Retro Bowl</a></p>
+  <a href="https://retrobowl.me" target="_blank">Play the latest Unblocked version here: Retro Bowl</a>
 </div>
 
 <script>
   function showMessage() {
-      var msgDiv = document.getElementById('retro-bowl-msg');
-      msgDiv.style.display = 'block';
-      setTimeout(function() {
-          msgDiv.style.display = 'none';
-      }, 5000);
+    var msgDiv = document.getElementById('retro-bowl-msg');
+    msgDiv.style.display = 'block';
+    setTimeout(function() {
+      msgDiv.style.display = 'none';
+    }, 10000);
   }
 
   window.onload = function() {
-      showMessage(); // Show immediately on load
-
-      setTimeout(function() {
-          showMessage(); // Show again after 2 minutes
-      }, 120000); // 2 minutes
+    showMessage();
+    setTimeout(showMessage, 120000);
   };
 </script>
+
 </body>
 
 
