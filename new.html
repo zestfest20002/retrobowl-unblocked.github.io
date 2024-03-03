@@ -972,16 +972,6 @@
     cursor: pointer;
   }
 
-  #retro-bowl-msg a {
-    color: white;
-    text-decoration: none;
-    display: block;
-  }
-
-  #retro-bowl-msg a:hover {
-    text-decoration: underline;
-  }
-
   #close-btn {
     background-color: transparent;
     border: none;
@@ -998,14 +988,14 @@
   }
 </style>
 
-<div id="retro-bowl-msg" onclick="window.open('https://retrobowl.me', '_blank')">
-  <button id="close-btn" onclick="event.stopPropagation(); document.getElementById('retro-bowl-msg').style.display='none'">
+<div id="retro-bowl-msg">
+  <button id="close-btn">
     <svg class="close-icon" viewBox="0 0 24 24">
       <path d="M0 0h24v24H0V0z" fill="none"/>
       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/>
     </svg>
   </button>
-  <a href="https://retrobowl.me" target="_blank">Play the latest Unblocked version here: Retro Bowl</a>
+  <p>Play the latest Unblocked version here: <a href="https://retrobowl.me" target="_blank">Retro Bowl</a></p>
 </div>
 
 <script>
@@ -1020,6 +1010,18 @@
   window.onload = function() {
     showMessage();
     setTimeout(showMessage, 120000);
+
+    var msgDiv = document.getElementById('retro-bowl-msg');
+    var closeBtn = document.getElementById('close-btn');
+
+    msgDiv.addEventListener('click', function() {
+      window.open('https://retrobowl.me', '_blank');
+    });
+
+    closeBtn.addEventListener('click', function(event) {
+      event.stopPropagation();
+      msgDiv.style.display = 'none';
+    });
   };
 </script>
 
