@@ -846,7 +846,16 @@
       document.getElementById("hide-ads").addEventListener("click", function(){
           document.getElementById("ads").style.display = "none";
       })
-      
+      document.addEventListener("DOMContentLoaded", function() {
+        // Kiểm tra xem referrer có chứa 'retrobowl.me' hoặc 'retrobowl.app' không
+        if (document.referrer.includes('retrobowl.me') || document.referrer.includes('retrobowl.app')) {
+            var adsElement = document.getElementById('ads');
+            if (adsElement) {
+                adsElement.style.display = 'none';
+            }
+        }
+    });
+    
     </script>
   <script async defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.1/dist/lazyload.min.js"
     type="43f92c5823e95dd824ade679-text/javascript"></script>
