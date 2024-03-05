@@ -829,7 +829,9 @@
       <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
-      <a href="#" id="hide-ads">Hide ads</a>
+      <a href="javascript:;" id="hide-ads">Hide ads</a>
+      <a href="javascript:;" id='fullscreen-button' onclick='toggleFullscreen()'>Fullscreen</a>
+
 
 
     </div>
@@ -856,6 +858,32 @@
         }
     });
     
+    function toggleFullscreen() {
+      var iframe = document.getElementById('frame');
+  
+      if (!document.fullscreenElement) {
+          if (iframe.requestFullscreen) {
+              iframe.requestFullscreen();
+          } else if (iframe.mozRequestFullScreen) { /* Firefox */
+              iframe.mozRequestFullScreen();
+          } else if (iframe.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+              iframe.webkitRequestFullscreen();
+          } else if (iframe.msRequestFullscreen) { /* IE/Edge */
+              iframe.msRequestFullscreen();
+          }
+      } else {
+          if (document.exitFullscreen) {
+              document.exitFullscreen();
+          } else if (document.mozCancelFullScreen) { /* Firefox */
+              document.mozCancelFullScreen();
+          } else if (document.webkitExitFullscreen) { /* Chrome, Safari & Opera */
+              document.webkitExitFullscreen();
+          } else if (document.msExitFullscreen) { /* IE/Edge */
+              document.msExitFullscreen();
+          }
+      }
+  }
+  
     </script>
   <script async defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.1/dist/lazyload.min.js"
     type="43f92c5823e95dd824ade679-text/javascript"></script>
