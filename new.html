@@ -51,7 +51,7 @@
 
     #ads a:hover {
       color: rgb(4, 187, 4);
-      border: 2px solid ;
+      border: 2px solid;
     }
 
     body {
@@ -854,7 +854,8 @@
         // Your custom settings go here
       };
       document.getElementById("hide-ads").addEventListener("click", function(){
-          document.getElementById("ads").style.display = "none";
+        showAFG();
+          
       })
       document.addEventListener("DOMContentLoaded", function() {
         // Kiểm tra xem referrer có chứa 'retrobowl.me' hoặc 'retrobowl.app' không
@@ -892,7 +893,57 @@
       }
   }
   
+  
     </script>
+  <script>// data-adbreak-test="on"
+    window.adsbygoogle = window.adsbygoogle || [];
+    var adBreak = adConfig = function (o) { adsbygoogle.push(o); }</script>
+  <script>
+    function showAFG() {
+      var show_ads = (typeof adBreak !== 'undefined') ? true : false;
+
+      var domain = 'retrobowl.me';
+      if (window != window.top && document.referrer != null) {
+        url = document.referrer;
+        ref = url.match(/:\/\/(.[^/]+)/)[1];
+        if (ref != domain) { show_ads = false; }
+
+      }
+
+      if (show_ads) {
+        console.log("show ads");
+        // Game start logic
+        let adConfigPromise =
+          new Promise((resolve, reject) => adConfig({
+            preloadAdBreaks: 'on',
+            onReady: () => resolve(true)
+          }));
+        let timeoutPromise =
+          new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve(false);
+            }, 2000);
+          });
+        // Whatever happens first resolves this promise.
+        Promise.race([
+          adConfigPromise,
+          timeoutPromise
+        ]).then((shouldShowPreRoll) => {
+          if (shouldShowPreRoll) {
+            showPreRoll();
+          } else {
+            showGamePlayerFrame();
+          }
+        });
+      } else {
+        console.log("no show ads");
+        showGamePlayerFrame();
+      }
+      document.getElementById("ads").style.display = "none";
+
+    }
+
+  </script>
   <script async defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.1/dist/lazyload.min.js"
     type="43f92c5823e95dd824ade679-text/javascript"></script>
   <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
