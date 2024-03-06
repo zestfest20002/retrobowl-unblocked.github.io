@@ -448,6 +448,37 @@
       cursor: pointer;
       font-size: 10px;
     }
+
+    #footer-menu a {
+      position: relative;
+      display: inline-block;
+    }
+
+    #footer-menu a .tooltip {
+      visibility: hidden;
+      width: 200px;
+      background-color: black;
+      color: white;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 1;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -100px;
+
+      /* Transition for smoother appearance */
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    #footer-menu a:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
   </style>
   <nav>
     <div id="side-navigation">
@@ -808,15 +839,15 @@
 
 
   </script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JNV0GPHRDL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JNV0GPHRDL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-JNV0GPHRDL');
-</script>
+    gtag('config', 'G-JNV0GPHRDL');
+  </script>
 </head>
 
 <body>
@@ -837,8 +868,19 @@
       <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
-      <a href="javascript:;" id="hide-ads">Hide ads</a>
-      <a href="javascript:;" id='fullscreen-button' onclick='toggleFullscreen()'>Fullscreen</a>
+      <div id="footer-menu">
+        <a href="javascript:;" id="hide-ads" title="Click to hide ads after view a short ad">Hide ads
+          <span class="tooltip">Hide ads after view a short ad</span>
+
+
+        </a>
+
+
+        <a href="javascript:;" id='fullscreen-button' onclick='toggleFullscreen()'>Fullscreen
+          <span class="tooltip">Play the game in fullscreen mode</span>
+
+        </a>
+      </div>
 
 
 
@@ -857,6 +899,8 @@
         showAFG();
           
       })
+
+      
       document.addEventListener("DOMContentLoaded", function() {
         // Kiểm tra xem referrer có chứa 'retrobowl.me' hoặc 'retrobowl.app' không
         if (document.referrer.includes('retrobowl.me') || document.referrer.includes('retrobowl.app')) {
