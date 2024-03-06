@@ -946,6 +946,14 @@
     function hideAds() {
       document.getElementById("ads").style.display = "none";
     }
+    function showPreRoll() {
+			 // Show ad
+			 adBreak({
+				 type: 'preroll',
+				 adBreakDone: hideAds, // always called, unblocks the game logic
+			 
+			 });
+			}
 
 
   </script>
