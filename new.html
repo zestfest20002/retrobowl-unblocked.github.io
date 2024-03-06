@@ -932,16 +932,21 @@
           if (shouldShowPreRoll) {
             showPreRoll();
           } else {
-            showGamePlayerFrame();
+            hideAds();
           }
         });
       } else {
         console.log("no show ads");
-        showGamePlayerFrame();
+        hideAds();
       }
-      document.getElementById("ads").style.display = "none";
+      
 
     }
+   
+    function hideAds() {
+      document.getElementById("ads").style.display = "none";
+    }
+
 
   </script>
   <script async defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.1/dist/lazyload.min.js"
