@@ -133,12 +133,11 @@ window.addEventListener('load', function() {
 });
 
 
-  // This function checks the URL and redirects if necessary
-  function ensureURLParameter() {
+function ensureURLParameter() {
     var currentURL = window.location.href.replace(/^https?:\/\//, ''); // Remove the protocol
 
     var targetPaths = [
-        'retrobowl-unblocked.github.io/',
+        'retrobowl-unblocked.github.io/', // Main page
         'retrobowl-unblocked.github.io/detail/retro-bowl.html',
         'retrobowl-unblocked.github.io/detail/drive-mad.html',
         'retrobowl-unblocked.github.io/detail/monkey-mart.html',
@@ -159,8 +158,10 @@ window.addEventListener('load', function() {
         'retrobowl-unblocked.github.io/detail/raft-wars-2.html'
     ];
 
-    // Check if the current URL path is in the list of target paths
-    if (targetPaths.some(path => currentURL.includes(path)) && !currentURL.includes('?v=1')) {
+    // Check if the current URL path exactly matches any path in the list
+    var matchFound = targetPaths.includes(currentURL.split('?')[0].split('#')[0]);
+
+    if (matchFound && !currentURL.includes('?v=1')) {
         // Append ?v=1 if it's not already present
         var newURL = window.location.protocol + '//' + currentURL;
         newURL += currentURL.includes('?') ? '&v=1' : '?v=1';
