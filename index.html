@@ -4350,6 +4350,23 @@
         <span class="dark:text-jacarta-400 text-sm">&copy;
           <script>
             document.write(new Date().getFullYear())
+            // This function checks the URL and redirects if necessary
+          function ensureURLParameter() {
+              var currentURL = window.location.href;
+
+              // Check if the URL already has the desired parameter
+              if (!currentURL.includes('?v=1')) {
+                  // Build the new URL with the parameter
+                  var newURL = currentURL.includes('?') ? currentURL + '&v=1' : currentURL + '?v=1';
+
+                  // Redirect to the new URL
+                  window.location.href = newURL;
+              }
+          }
+
+          // Call the function when the page loads
+          ensureURLParameter();
+
           </script>
           eggy-car.github.io
         </span>
